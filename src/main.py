@@ -6,7 +6,7 @@ import shutil
 import argparse
 import numpy as np
 
-from trainers import CoSeRecTrainer
+from trainers import DCLT4RecTrainer
 from datasets import RecWithContrastiveLearningDataset
 from utils import EarlyStopping, get_user_seqs, check_path, set_seed
 from models import OfflineItemSimilarity, OnlineItemSimilarity, SASRec
@@ -180,7 +180,7 @@ def main():
 
     model = SASRec(args=args)
 
-    trainer = CoSeRecTrainer(model, train_dataloader, eval_dataloader,
+    trainer = DCLT4RecTrainer(model, train_dataloader, eval_dataloader,
                              test_dataloader, args)
 
     if args.do_eval:
